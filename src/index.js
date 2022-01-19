@@ -5,7 +5,7 @@ import App from './App';
 import { weatherReducer } from './reducers/weatherReducer';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { consoleMiddleware } from './middleware/fetchCitiesMiddleware';
+import { consoleMiddleware } from './middleware/consoleMiddleware';
 
 const middlewareEnhancer = applyMiddleware(consoleMiddleware);
 

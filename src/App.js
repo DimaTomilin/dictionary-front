@@ -1,16 +1,20 @@
 import React from 'react';
-import Header from './comp/Header';
-import Main from './comp/Main';
-import Footer from './comp/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SearchPage from './comp/SearchPage';
+import WordPage from './comp/WordPage';
+import { useSelector } from 'react-redux';
 
 export default function App() {
+  const { word } = useSelector((state) => {
+    return state[0];
+  });
+
   return (
-    <div className="App">
-      <Header />
-      <hr />
-      <Main />
-      <hr />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<SearchPage />} />
+        <Route path={`/${word}`} element={<WordPage />} />
+      </Routes>
+    </Router>
   );
 }

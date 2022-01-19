@@ -1,22 +1,24 @@
 import React from 'react';
 import '../styles/footer.scss';
+import { BsTwitter, BsGithub, BsFacebook, BsInstagram } from 'react-icons/bs';
 
 export default function Footer() {
+  const marginBottom = { marginBottom: '10px' };
   return (
     <div className="footer-basic">
       <footer>
         <div className="social">
           <a href="https://www.instagram.com/tomilin.dimon/" target="blank">
-            <i className="icon ion-social-instagram"></i>
+            <BsInstagram style={marginBottom} />
           </a>
           <a href="https://github.com/DimaTomilin" target="blank">
-            <i className="icon ion-social-github"></i>
+            <BsGithub style={marginBottom} />
           </a>
           <a href="https://twitter.com/TomilinDima" target="blank">
-            <i className="icon ion-social-twitter"></i>
+            <BsTwitter style={marginBottom} />
           </a>
           <a href="https://www.facebook.com/tomilin.dimon" target="blank">
-            <i className="icon ion-social-facebook"></i>
+            <BsFacebook style={marginBottom} />
           </a>
         </div>
         <p className="copyright">Dima Project © 2018</p>

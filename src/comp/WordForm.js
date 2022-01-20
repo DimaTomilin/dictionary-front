@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { alert } from '../helpers/alerts';
 
 export default function WordForm() {
   const WordEle = useRef();
@@ -15,16 +16,21 @@ export default function WordForm() {
     if (PartSpeechEle.current.value != 0) {
       url += PartSpeechEle.current.value;
     }
-    const response = await axios.get(url);
-    dispatch({
-      type: 'SET_NEW_WORD',
-      payload: response.data,
-    });
-    if (PartSpeechEle.current.value != 0) {
-      navigate(`/${response.data[0].Word}/${PartSpeechEle.current.value}`);
+    const { data } = await axios.get(url);
+    if (data.length === 0) {
+      alert('Sorry but we don`t find this word');
+      WordEle.current.value = '';
       return;
     }
-    navigate(`/${response.data[0].Word}`);
+    dispatch({
+      type: 'SET_NEW_WORD',
+      payload: data,
+    });
+    if (PartSpeechEle.current.value != 0) {
+      navigate(`/${data[0].Word}/${PartSpeechEle.current.value}`);
+      return;
+    }
+    navigate(`/${data[0].Word}`);
   };
   return (
     <Container style={{ margin: '0 auto 70px', width: '80%' }}>

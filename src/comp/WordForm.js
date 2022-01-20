@@ -1,30 +1,49 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useRef } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 export default function WordForm() {
-  const newWord = {
-    word: 'Mother',
-    partOfSpeech: 'Noun',
-    definition: 'Mum, the nearest person in your live',
-  };
+  const WordEle = useRef();
+  const PartSpeechEle = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const clickHandle = () => {
+  const clickHandle = async () => {
+    let url = `http://localhost:3000/${WordEle.current.value}/`;
+    if (PartSpeechEle.current.value != 0) {
+      url += PartSpeechEle.current.value;
+    }
+    const response = await axios.get(url);
     dispatch({
       type: 'SET_NEW_WORD',
-      payload: newWord,
+      payload: response.data,
     });
-    navigate(`/${newWord.word}`);
+    if (PartSpeechEle.current.value != 0) {
+      navigate(`/${response.data[0].Word}/${PartSpeechEle.current.value}`);
+      return;
+    }
+    navigate(`/${response.data[0].Word}`);
   };
   return (
     <Container style={{ margin: '0 auto 70px', width: '80%' }}>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Word</Form.Label>
-          <Form.Control type="number" placeholder="Enter word" />
+          <Form.Control type="text" placeholder="Enter word" ref={WordEle} />
+          <Form.Label>Part of speech</Form.Label>
+          <Form.Select aria-label="Default select example" ref={PartSpeechEle}>
+            <option value={0}>Part of speech(Optional)</option>
+            <option value="Noun">Noun</option>
+            <option value="Pronoun">Pronoun</option>
+            <option value="Adjective">Adjective</option>
+            <option value="Verb">Verb</option>
+            <option value="Adverb">Adverb</option>
+            <option value="Preposition">Preposition</option>
+            <option value="Conjunction">Conjunction</option>
+            <option value="Article">Article</option>
+          </Form.Select>
         </Form.Group>
         <Button variant="primary" className="form-btn" onClick={clickHandle}>
           Find

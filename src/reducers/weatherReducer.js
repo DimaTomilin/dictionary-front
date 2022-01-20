@@ -17,7 +17,7 @@ export const weatherReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_NEW_WORD': {
       const newWord = action.payload;
-      return [newWord];
+      return [...newWord];
     }
     case 'DELETE_WEATHER': {
       const weatherId = action.payload;

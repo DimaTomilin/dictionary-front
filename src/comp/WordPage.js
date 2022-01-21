@@ -19,9 +19,9 @@ export default function WordPage() {
       <h2>{state[0].Word}</h2>
       {state.map((word) => {
         return (
-          <div key={word.Definitions.slice(0, 5)}>
+          <div key={word.Definition.slice(0, 5)}>
             <p>{word.Part_of_speech}</p>
-            <p>{word.Definitions}</p>
+            <p>{word.Definition}</p>
           </div>
         );
       })}

@@ -5,12 +5,6 @@ const initialState = [
     definition:
       'The greatest quantity or value attainable in a given case; or, the greatest value attained by a quantity which first increases and then begins to decrease; the highest point or degree; -- opposed to minimum.',
   },
-  // {
-  //   word: 'Maximum',
-  //   partOfSpeech: 'Adjective',
-  //   definition:
-  //     'Greatest in quantity or highest in degree attainable or attained; as, a maximum consumption of fuel; maximum pressure; maximum heat.',
-  // },
 ];
 
 export const weatherReducer = (state = initialState, action) => {

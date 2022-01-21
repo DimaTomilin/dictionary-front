@@ -12,15 +12,19 @@ export default function App() {
       <Routes>
         <Route path="/" element={<SearchPage />} />
         <Route path={`/${state[0].Word}`} element={<WordPage />} />
-        {state.map((wordPartOfSpeech) => {
+        {state.map((wordPartOfSpeech, index) => {
           return (
             <Route
               path={`/${wordPartOfSpeech.Word}/${wordPartOfSpeech.Part_of_speech}`}
               element={<WordPage />}
-              key={wordPartOfSpeech.Part_of_speech}
+              key={index}
             />
           );
         })}
+        <Route
+          path={`/part-of-speech/${state[0].Part_of_speech}`}
+          element={<WordPage />}
+        />
       </Routes>
     </Router>
   );

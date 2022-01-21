@@ -1,27 +1,60 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import axios from 'axios';
 import { Button, Container, Form } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { alert } from '../helpers/alerts';
 
 export default function RandomWordForm() {
+  const LetterEle = useRef();
+  const PartSpeechEle = useRef();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const clickHandle = async () => {
+    let url = `http://localhost:3000/part-of-speech/${PartSpeechEle.current.value}`;
+    if (PartSpeechEle.current.value === 0) {
+      alert('Sorry but you did`t choose part of speech');
+    }
+    if (LetterEle.current.value) {
+      url += `?letter=${LetterEle.current.value.toLowerCase()}`;
+    }
+    const { data } = await axios.get(url);
+    if (data.length === 0) {
+      alert('Sorry but we don`t find the word,please try again');
+      return;
+    }
+    dispatch({
+      type: 'SET_NEW_WORD',
+      payload: [data],
+    });
+    navigate(`/part-of-speech/${data.Part_of_speech}`);
+  };
+
   return (
     <Container style={{ margin: '0 auto 70px', width: '80%' }}>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Part of speech</Form.Label>
-          <Form.Select aria-label="Default select example">
-            <option>Pick one of part of speech</option>
-            <option value="nouns">Nouns</option>
-            <option value="pronouns">Pronouns</option>
-            <option value="adjectives">Adjectives</option>
-            <option value="verbs">Verbs</option>
-            <option value="adverbs">Adverbs</option>
-            <option value="prepositions">Prepositions</option>
-            <option value="conjunctions">Conjunctions</option>
-            <option value="articles">Articles</option>
+          <Form.Select aria-label="Default select example" ref={PartSpeechEle}>
+            <option value={0}>Part of speech(Optional)</option>
+            <option value="Noun">Noun</option>
+            <option value="Pronoun">Pronoun</option>
+            <option value="Adjective">Adjective</option>
+            <option value="Verb">Verb</option>
+            <option value="Adverb">Adverb</option>
+            <option value="Preposition">Preposition</option>
+            <option value="Conjunction">Conjunction</option>
+            <option value="Article">Article</option>
           </Form.Select>
           <Form.Label>First letter</Form.Label>
-          <Form.Control type="text" placeholder="First letter(Optional)" />
+          <Form.Control
+            type="text"
+            placeholder="First letter(Optional)"
+            ref={LetterEle}
+          />
         </Form.Group>
-        <Button variant="primary" className="form-btn">
+        <Button variant="primary" className="form-btn" onClick={clickHandle}>
           Find
         </Button>
       </Form>

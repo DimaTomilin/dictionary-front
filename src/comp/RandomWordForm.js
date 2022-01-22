@@ -12,7 +12,7 @@ export default function RandomWordForm() {
   const dispatch = useDispatch();
 
   const clickHandle = async () => {
-    let url = `http://localhost:3000/part-of-speech/${PartSpeechEle.current.value}`;
+    let url = `https://whispering-woodland-98306.herokuapp.com/part-of-speech/${PartSpeechEle.current.value}`;
     if (PartSpeechEle.current.value === 0) {
       alert('Sorry but you did`t choose part of speech');
     }

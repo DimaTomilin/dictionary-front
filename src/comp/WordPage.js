@@ -23,7 +23,7 @@ export default function WordPage() {
   const findWord = async (e) => {
     if (e.ctrlKey === true) {
       const word = takeWord();
-      let url = `http://localhost:3000/${word}/`;
+      let url = `https://whispering-woodland-98306.herokuapp.com/${word}/`;
       const { data } = await axios.get(url);
       if (data.length === 0) {
         alert('Sorry but we don`t find this word');

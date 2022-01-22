@@ -12,7 +12,7 @@ export default function WordForm() {
   const dispatch = useDispatch();
 
   const clickHandle = async () => {
-    let url = `http://localhost:3000/${WordEle.current.value}/`;
+    let url = `https://whispering-woodland-98306.herokuapp.com/${WordEle.current.value}/`;
     if (PartSpeechEle.current.value != 0) {
       url += PartSpeechEle.current.value;
     }

@@ -21,7 +21,7 @@ export default function Footer() {
             <BsFacebook style={marginBottom} />
           </a>
         </div>
-        <p className="copyright">Dima Project © 2018</p>
+        <p className="copyright">Dima Project © 2022</p>
       </footer>
     </div>
   );

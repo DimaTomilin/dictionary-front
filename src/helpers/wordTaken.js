@@ -1,3 +1,4 @@
+//Function that taking word that I clicked on it.
 const takeWord = () => {
   const s = window.getSelection();
   const range = s.getRangeAt(0);

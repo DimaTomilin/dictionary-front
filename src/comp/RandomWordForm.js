@@ -17,23 +17,27 @@ export default function RandomWordForm() {
       alert('Sorry but you did`t choose part of speech');
     }
     if (LetterEle.current.value) {
-      if (LetterEle.current.value.length.trim() === 1) {
+      if (LetterEle.current.value.trim().length === 1) {
         url += `?letter=${LetterEle.current.value.trim().toLowerCase()}`;
       } else {
         alert('You need insert only first letter of word');
         return;
       }
     }
-    const { data } = await axios.get(url);
-    if (data.length === 0) {
-      alert('Sorry but we don`t find the word,please try again');
-      return;
+    try {
+      const { data } = await axios.get(url);
+      if (data.length === 0) {
+        alert('Sorry but we don`t find the word,please try again');
+        return;
+      }
+      dispatch({
+        type: 'SET_NEW_WORD',
+        payload: [data],
+      });
+      navigate(`/part-of-speech/${data.Part_of_speech}`);
+    } catch (error) {
+      alert(error.response.message);
     }
-    dispatch({
-      type: 'SET_NEW_WORD',
-      payload: [data],
-    });
-    navigate(`/part-of-speech/${data.Part_of_speech}`);
   };
 
   return (

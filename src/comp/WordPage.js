@@ -24,16 +24,20 @@ export default function WordPage() {
     if (e.ctrlKey === true) {
       const word = takeWord();
       let url = `https://whispering-woodland-98306.herokuapp.com/${word}/`;
-      const { data } = await axios.get(url);
-      if (data.length === 0) {
-        alert('Sorry but we don`t find this word');
-        return;
+      try {
+        const { data } = await axios.get(url);
+        if (data.length === 0) {
+          alert('Sorry but we don`t find this word');
+          return;
+        }
+        dispatch({
+          type: 'SET_NEW_WORD',
+          payload: data,
+        });
+        navigate(`/${data[0].Word}`);
+      } catch (error) {
+        alert(error.response.message);
       }
-      dispatch({
-        type: 'SET_NEW_WORD',
-        payload: data,
-      });
-      navigate(`/${data[0].Word}`);
     }
   };
 

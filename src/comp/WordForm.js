@@ -16,21 +16,25 @@ export default function WordForm() {
     if (PartSpeechEle.current.value != 0) {
       url += PartSpeechEle.current.value;
     }
-    const { data } = await axios.get(url);
-    if (data.length === 0) {
-      alert('Sorry but we don`t find this word');
-      WordEle.current.value = '';
-      return;
+    try {
+      const { data } = await axios.get(url);
+      if (data.length === 0) {
+        alert('Sorry but we don`t find this word');
+        WordEle.current.value = '';
+        return;
+      }
+      dispatch({
+        type: 'SET_NEW_WORD',
+        payload: data,
+      });
+      if (PartSpeechEle.current.value != 0) {
+        navigate(`/${data[0].Word}/${PartSpeechEle.current.value}`);
+        return;
+      }
+      navigate(`/${data[0].Word}`);
+    } catch (error) {
+      alert(error.response.message);
     }
-    dispatch({
-      type: 'SET_NEW_WORD',
-      payload: data,
-    });
-    if (PartSpeechEle.current.value != 0) {
-      navigate(`/${data[0].Word}/${PartSpeechEle.current.value}`);
-      return;
-    }
-    navigate(`/${data[0].Word}`);
   };
   return (
     <Container className="search-form">

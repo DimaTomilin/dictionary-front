@@ -13,6 +13,8 @@ export default function WordPage() {
   const state = useSelector((state) => state);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const wordToHeader =
+    state[0].Word.charAt(0).toUpperCase() + state[0].Word.slice(1);
 
   const clickHandle = () => {
     navigate('/');
@@ -36,21 +38,25 @@ export default function WordPage() {
   };
 
   return (
-    <div className="App">
+    <div>
       <Header />
       <hr />
-      <h2>{state[0].Word}</h2>
-      {state.map((word) => {
-        return (
-          <div key={word.Definition.slice(0, 5)}>
-            <p>{word.Part_of_speech}</p>
-            <p onClick={testclick}>{word.Definition}</p>
-          </div>
-        );
-      })}
-      <Button variant="primary" className="form-btn" onClick={findWord}>
-        To main page
-      </Button>
+      <div className="word-page">
+        <h2>{wordToHeader}</h2>
+        {state.map((word) => {
+          return (
+            <div key={word.Definition.slice(0, 5)}>
+              <p className="part-of-speech">{word.Part_of_speech}</p>
+              <p className="definition" onClick={findWord}>
+                {word.Definition}
+              </p>
+            </div>
+          );
+        })}
+        <Button variant="info" className="form-btn" onClick={clickHandle}>
+          To main page
+        </Button>
+      </div>
       <hr />
       <Footer />
     </div>

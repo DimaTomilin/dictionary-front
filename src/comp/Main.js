@@ -7,7 +7,6 @@ export default function Main() {
     <div className="main">
       <WordForm />
       <RandomWordForm />
-      Main Text
     </div>
   );
 }

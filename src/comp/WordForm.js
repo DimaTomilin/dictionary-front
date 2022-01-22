@@ -33,13 +33,17 @@ export default function WordForm() {
     navigate(`/${data[0].Word}`);
   };
   return (
-    <Container style={{ margin: '0 auto 70px', width: '80%' }}>
+    <Container className="search-form">
       <Form>
+        <Form.Label className="form-header">Search Word</Form.Label>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Word</Form.Label>
-          <Form.Control type="text" placeholder="Enter word" ref={WordEle} />
-          <Form.Label>Part of speech</Form.Label>
-          <Form.Select aria-label="Default select example" ref={PartSpeechEle}>
+          <Form.Control
+            type="text"
+            placeholder="Enter word"
+            ref={WordEle}
+            style={{ marginBottom: '15px' }}
+          />
+          <Form.Select ref={PartSpeechEle}>
             <option value={0}>Part of speech(Optional)</option>
             <option value="Noun">Noun</option>
             <option value="Pronoun">Pronoun</option>
@@ -51,7 +55,7 @@ export default function WordForm() {
             <option value="Article">Article</option>
           </Form.Select>
         </Form.Group>
-        <Button variant="primary" className="form-btn" onClick={clickHandle}>
+        <Button variant="info" className="form-btn" onClick={clickHandle}>
           Find
         </Button>
       </Form>

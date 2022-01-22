@@ -17,7 +17,12 @@ export default function RandomWordForm() {
       alert('Sorry but you did`t choose part of speech');
     }
     if (LetterEle.current.value) {
-      url += `?letter=${LetterEle.current.value.toLowerCase()}`;
+      if (LetterEle.current.value.length.trim() === 1) {
+        url += `?letter=${LetterEle.current.value.trim().toLowerCase()}`;
+      } else {
+        alert('You need insert only first letter of word');
+        return;
+      }
     }
     const { data } = await axios.get(url);
     if (data.length === 0) {
@@ -32,11 +37,13 @@ export default function RandomWordForm() {
   };
 
   return (
-    <Container style={{ margin: '0 auto 70px', width: '80%' }}>
+    <Container className="search-form">
       <Form>
+        <Form.Label className="form-header">
+          Find random word by part of speech
+        </Form.Label>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Part of speech</Form.Label>
-          <Form.Select aria-label="Default select example" ref={PartSpeechEle}>
+          <Form.Select ref={PartSpeechEle} style={{ marginBottom: '15px' }}>
             <option value={0}>Part of speech(Optional)</option>
             <option value="Noun">Noun</option>
             <option value="Pronoun">Pronoun</option>
@@ -47,14 +54,13 @@ export default function RandomWordForm() {
             <option value="Conjunction">Conjunction</option>
             <option value="Article">Article</option>
           </Form.Select>
-          <Form.Label>First letter</Form.Label>
           <Form.Control
             type="text"
             placeholder="First letter(Optional)"
             ref={LetterEle}
           />
         </Form.Group>
-        <Button variant="primary" className="form-btn" onClick={clickHandle}>
+        <Button variant="info" className="form-btn" onClick={clickHandle}>
           Find
         </Button>
       </Form>

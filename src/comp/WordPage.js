@@ -10,7 +10,7 @@ import { takeWord } from '../helpers/wordTaken';
 import { alert } from '../helpers/alerts';
 
 export default function WordPage() {
-  const { words } = useSelector((state) => state);
+  const { words, mode } = useSelector((state) => state);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const wordToHeader =
@@ -42,7 +42,7 @@ export default function WordPage() {
   };
 
   return (
-    <div>
+    <div style={mode}>
       <Header />
       <hr />
       <div className="word-page">

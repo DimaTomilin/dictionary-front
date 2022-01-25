@@ -10,11 +10,11 @@ import { takeWord } from '../helpers/wordTaken';
 import { alert } from '../helpers/alerts';
 
 export default function WordPage() {
-  const state = useSelector((state) => state);
+  const { words, mode } = useSelector((state) => state);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const wordToHeader =
-    state[0].Word.charAt(0).toUpperCase() + state[0].Word.slice(1);
+    words[0].Word.charAt(0).toUpperCase() + words[0].Word.slice(1);
 
   const clickHandle = () => {
     navigate('/');
@@ -42,12 +42,12 @@ export default function WordPage() {
   };
 
   return (
-    <div>
+    <div style={mode}>
       <Header />
       <hr />
       <div className="word-page">
         <h2>{wordToHeader}</h2>
-        {state.map((word) => {
+        {words.map((word) => {
           return (
             <div key={word.Definition.slice(0, 5)}>
               <p className="part-of-speech">{word.Part_of_speech}</p>

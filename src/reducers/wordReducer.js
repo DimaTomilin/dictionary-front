@@ -8,7 +8,7 @@ const initialState = [
   },
 ];
 
-export const weatherReducer = (state = initialState, action) => {
+export const wordReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_NEW_WORD': {
       const newWord = action.payload;

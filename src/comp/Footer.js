@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/footer.scss';
 import { BsTwitter, BsGithub, BsFacebook, BsInstagram } from 'react-icons/bs';
-import { useSelector } from 'react-redux';
+import { ThemeContext } from '../ThemeContext';
 
 export default function Footer() {
-  const { mode } = useSelector((state) => state);
   const marginBottom = { marginBottom: '10px' };
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   return (
-    <div className="footer-basic" style={mode}>
+    <div className={`footer-basic ${darkMode ? 'darkmode' : 'lightmode'}`}>
       <footer>
         <div className="social">
           <a href="https://www.instagram.com/tomilin.dimon/" target="blank">

@@ -1,27 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../ThemeContext';
 import '../styles/darkMode.scss';
-import { useDispatch, useSelector } from 'react-redux';
 
 export default function DarkMode() {
-  const dispatch = useDispatch();
-  const { mode } = useSelector((state) => state);
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
 
-  const toggleTheme = () => {
-    console.log('here');
-    console.log(mode);
-    if (mode.color === 'black') {
-      console.log('here2');
-      dispatch({
-        type: 'SET_DARK_MODE',
-      });
+  const onChange = () => {
+    if (darkMode) {
+      theme.dispatch({ type: 'LIGHTMODE' });
     } else {
-      dispatch({
-        type: 'SET_LIGHT_MODE',
-      });
+      theme.dispatch({ type: 'DARKMODE' });
     }
   };
 
-  const defaultDark = mode.color === 'white' ? true : false;
   return (
     <div className="toggle-theme-wrapper">
       <span>☀️</span>
@@ -29,8 +21,8 @@ export default function DarkMode() {
         <input
           type="checkbox"
           id="checkbox"
-          onChange={toggleTheme}
-          defaultChecked={defaultDark}
+          onChange={onChange}
+          defaultChecked={darkMode}
         />
         <div className="slider round" />
       </label>

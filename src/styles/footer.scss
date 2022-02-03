@@ -1,7 +1,21 @@
+.darkmode {
+  --background-color: rgb(100, 99, 99);
+  --font-color: #ffffff;
+  --footer-font-color: #ffffff;
+  --button-color: #dfb674;
+  --button-border: sandybrown;
+}
+.lightmode {
+  --background-color: #ffffff;
+  --font-color: #000000;
+  --footer-font-color: #4b4c4d;
+  --button-color: #dfb674;
+  --button-border: sandybrown;
+}
 .footer-basic {
   padding: 0;
-  background-color: #ffffff;
-  color: #4b4c4d;
+  background-color: var(--background-color) !important;
+  color: var(--footer-font-color) !important;
   .social {
     text-align: center;
     padding-bottom: 10px;

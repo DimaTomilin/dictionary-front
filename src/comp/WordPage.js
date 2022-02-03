@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import axios from 'axios';
@@ -8,9 +8,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { takeWord } from '../helpers/wordTaken';
 import { alert } from '../helpers/alerts';
+import { ThemeContext } from '../ThemeContext';
 
 export default function WordPage() {
-  const { words, mode } = useSelector((state) => state);
+  const { words } = useSelector((state) => state);
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const wordToHeader =
@@ -42,7 +45,7 @@ export default function WordPage() {
   };
 
   return (
-    <div style={mode}>
+    <div className={`App ${darkMode ? 'darkmode' : 'lightmode'}`}>
       <Header />
       <hr />
       <div className="word-page">

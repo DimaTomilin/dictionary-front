@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import AlertMessage from './AlertMessage';
-import { useSelector } from 'react-redux';
+import { ThemeContext } from '../ThemeContext';
 
 export default function SearchPage() {
-  const { mode } = useSelector((state) => state);
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
 
   return (
-    <div className="App" style={mode}>
+    <div className={`App ${darkMode ? 'darkmode' : 'lightmode'}`}>
       <Header />
       <hr />
       <AlertMessage />

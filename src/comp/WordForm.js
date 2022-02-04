@@ -36,6 +36,7 @@ export default function WordForm() {
       alert(error.response.message);
     }
   };
+
   return (
     <Container className="search-form">
       <Form>

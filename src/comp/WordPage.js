@@ -5,42 +5,70 @@ import Footer from './Footer';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import {
+  useNavigate,
+  useParams,
+  useLocation,
+  useSearchParams,
+} from 'react-router-dom';
 import { takeWord } from '../helpers/wordTaken';
 import { alert } from '../helpers/alerts';
 import { ThemeContext } from '../ThemeContext';
+import { checkRouteParamsAndGetWord } from '../helpers/compareParamsToState';
 
 export default function WordPage() {
   const { words } = useSelector((state) => state);
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const wordToHeader =
-    words[0].Word.charAt(0).toUpperCase() + words[0].Word.slice(1);
+
+  const navigate = useNavigate();
+  const params = useParams();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const letterQueryParams = searchParams.get('letter');
+
+  checkRouteParamsAndGetWord(
+    words,
+    dispatch,
+    params,
+    location.pathname,
+    letterQueryParams
+  );
 
   const clickHandle = () => {
     navigate('/');
   };
 
+  if (params.word) {
+    if (words.length === 0 || words[0].Word != params.word.toLowerCase()) {
+      return (
+        <div className={`App ${darkMode ? 'darkmode' : 'lightmode'}`}>
+          <Header />
+          <hr />
+          <div className="word-page">
+            <h2></h2>
+            <Button variant="info" className="form-btn" onClick={clickHandle}>
+              To main page
+            </Button>
+          </div>
+          <hr />
+          <Footer />
+        </div>
+      );
+    }
+  }
+
+  let wordToHeader = '';
+  if (words.length != 0) {
+    wordToHeader =
+      words[0].Word.charAt(0).toUpperCase() + words[0].Word.slice(1);
+  }
+
   const findWord = async (e) => {
     if (e.ctrlKey === true) {
       const word = takeWord();
-      let url = `https://whispering-woodland-98306.herokuapp.com/${word}/`;
-      try {
-        const { data } = await axios.get(url);
-        if (data.length === 0) {
-          alert('Sorry but we don`t find this word');
-          return;
-        }
-        dispatch({
-          type: 'SET_NEW_WORD',
-          payload: data,
-        });
-        navigate(`/${data[0].Word}`);
-      } catch (error) {
-        alert(error.response.message);
-      }
+      navigate(`/${word}`);
     }
   };
 

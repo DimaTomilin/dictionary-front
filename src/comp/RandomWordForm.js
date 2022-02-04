@@ -34,6 +34,14 @@ export default function RandomWordForm() {
         type: 'SET_NEW_WORD',
         payload: [data],
       });
+      if (LetterEle.current.value.trim().length === 1) {
+        navigate(
+          `/part-of-speech/${
+            data.Part_of_speech
+          }?letter=${LetterEle.current.value.trim().toLowerCase()}`
+        );
+        return;
+      }
       navigate(`/part-of-speech/${data.Part_of_speech}`);
     } catch (error) {
       alert(error.response.message);

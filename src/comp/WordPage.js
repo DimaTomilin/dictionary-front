@@ -2,7 +2,6 @@
 import React, { useContext } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -12,7 +11,6 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 import { takeWord } from '../helpers/wordTaken';
-import { alert } from '../helpers/alerts';
 import { ThemeContext } from '../ThemeContext';
 import { checkRouteParamsAndGetWord } from '../helpers/compareParamsToState';
 

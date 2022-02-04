@@ -12,7 +12,7 @@ export default function RandomWordForm() {
   const dispatch = useDispatch();
 
   const clickHandle = async () => {
-    let url = `https://whispering-woodland-98306.herokuapp.com/part-of-speech/${PartSpeechEle.current.value}`;
+    let url = `https://whispering-woodland-98306.herokuapp.com/part-of-speech/${PartSpeechEle.current.value.toLowerCase()}`;
     if (PartSpeechEle.current.value === 0) {
       alert('Sorry but you did`t choose part of speech');
     }
@@ -34,7 +34,15 @@ export default function RandomWordForm() {
         type: 'SET_NEW_WORD',
         payload: [data],
       });
-      navigate(`/part-of-speech/${data.Part_of_speech}`);
+      if (LetterEle.current.value.trim().length === 1) {
+        navigate(
+          `/part-of-speech/${data.Part_of_speech.toLowerCase()}?letter=${LetterEle.current.value
+            .trim()
+            .toLowerCase()}`
+        );
+        return;
+      }
+      navigate(`/part-of-speech/${data.Part_of_speech.toLowerCase()}`);
     } catch (error) {
       alert(error.response.message);
     }

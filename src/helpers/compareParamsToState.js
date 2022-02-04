@@ -33,7 +33,7 @@ export const checkRouteParamsAndGetWord = async (
 const getNewWord = async (word, partOfSpeech, dispatch) => {
   let url = baseUrl + word;
   if (partOfSpeech) {
-    url = url + '/' + partOfSpeech.toLowerCase;
+    url = url + '/' + partOfSpeech.toLowerCase();
   }
   try {
     const { data } = await axios.get(url);
@@ -52,7 +52,7 @@ const getNewWord = async (word, partOfSpeech, dispatch) => {
 };
 
 const getRandomWord = async (queryParams, partOfSpeech, dispatch) => {
-  let url = baseUrl + 'part-of-speech/' + partOfSpeech.toLowerCase;
+  let url = baseUrl + 'part-of-speech/' + partOfSpeech.toLowerCase();
   if (queryParams) {
     if (queryParams.trim().length === 1) {
       url += `?letter=${queryParams.trim().toLowerCase()}`;

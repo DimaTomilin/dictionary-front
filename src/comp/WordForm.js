@@ -14,7 +14,7 @@ export default function WordForm() {
   const clickHandle = async () => {
     let url = `https://whispering-woodland-98306.herokuapp.com/${WordEle.current.value}/`;
     if (PartSpeechEle.current.value != 0) {
-      url += PartSpeechEle.current.value;
+      url += PartSpeechEle.current.value.toLowerCase();
     }
     try {
       const { data } = await axios.get(url);
@@ -28,7 +28,9 @@ export default function WordForm() {
         payload: data,
       });
       if (PartSpeechEle.current.value != 0) {
-        navigate(`/${data[0].Word}/${PartSpeechEle.current.value}`);
+        navigate(
+          `/${data[0].Word}/${PartSpeechEle.current.value.toLowerCase()}`
+        );
         return;
       }
       navigate(`/${data[0].Word}`);

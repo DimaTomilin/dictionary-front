@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SearchPage from './comp/SearchPage';
-import WordPage from './comp/WordPage';
-import { ThemeProvider } from './ThemeContext';
+import SearchPage from './pages/SearchPage';
+import WordPage from './pages/WordPage';
+import { ThemeProvider } from './context/ThemeContext';
 
 export default function App() {
   return (

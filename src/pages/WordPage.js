@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useContext } from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import Header from '../comp/Header';
+import Footer from '../comp/Footer';
 import { Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -11,7 +11,7 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 import { takeWord } from '../helpers/wordTaken';
-import { ThemeContext } from '../ThemeContext';
+import { ThemeContext } from '../context/ThemeContext';
 import { checkRouteParamsAndGetWord } from '../helpers/compareParamsToState';
 
 export default function WordPage() {

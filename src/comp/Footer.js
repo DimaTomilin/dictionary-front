@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import '../styles/footer.scss';
 import { BsTwitter, BsGithub, BsFacebook, BsInstagram } from 'react-icons/bs';
-import { ThemeContext } from '../ThemeContext';
+import { ThemeContext } from '../context/ThemeContext';
 
 export default function Footer() {
   const marginBottom = { marginBottom: '10px' };

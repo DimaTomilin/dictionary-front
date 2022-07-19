@@ -1,5 +1,5 @@
 import React from 'react';
-import DarkMode from './DarkMode';
+import DarkMode from './ui/DarkMode';
 
 export default function Header() {
   return (

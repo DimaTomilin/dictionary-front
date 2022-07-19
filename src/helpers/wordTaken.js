@@ -16,7 +16,7 @@ const takeWord = () => {
     }
   }
 
-  //Check if first letter of the string it is first letter of the paragraf
+  //Check if first letter of the string it is first letter of the paragraph
   if (node.data.indexOf(range.toString()[0]) !== 0) {
     range.setStart(node, range.startOffset + 1);
   }

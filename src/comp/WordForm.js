@@ -1,42 +1,19 @@
-import axios from 'axios';
 import React, { useRef } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { alert } from '../helpers/alerts';
 
 export default function WordForm() {
   const WordEle = useRef();
   const PartSpeechEle = useRef();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const clickHandle = async () => {
-    let url = `https://whispering-woodland-98306.herokuapp.com/${WordEle.current.value}/`;
+    let url = `/${WordEle.current.value}/`;
     if (PartSpeechEle.current.value != 0) {
       url += PartSpeechEle.current.value.toLowerCase();
     }
-    try {
-      const { data } = await axios.get(url);
-      if (data.length === 0) {
-        alert('Sorry but we don`t find this word');
-        WordEle.current.value = '';
-        return;
-      }
-      dispatch({
-        type: 'SET_NEW_WORD',
-        payload: data,
-      });
-      if (PartSpeechEle.current.value != 0) {
-        navigate(
-          `/${data[0].Word}/${PartSpeechEle.current.value.toLowerCase()}`
-        );
-        return;
-      }
-      navigate(`/${data[0].Word}`);
-    } catch (error) {
-      alert(error.response.message);
-    }
+    navigate(url);
+    return;
   };
 
   return (

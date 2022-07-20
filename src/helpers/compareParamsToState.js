@@ -4,29 +4,17 @@ import { alert } from './alerts';
 const baseUrl = 'https://whispering-woodland-98306.herokuapp.com/';
 
 export const checkRouteParamsAndGetWord = async (
-  wordInState,
   dispatch,
   { word, partOfSpeech },
   path,
   queryParams
 ) => {
   if (path.includes('part-of-speech')) {
-    if (
-      wordInState.length === 0 ||
-      wordInState[0].Part_of_speech.toLowerCase() != partOfSpeech.toLowerCase()
-    ) {
-      getRandomWord(queryParams, partOfSpeech, dispatch);
-      return;
-    } else {
-      return;
-    }
+    getRandomWord(queryParams, partOfSpeech, dispatch);
+    return;
   } else {
-    if (wordInState.length === 0 || wordInState[0].Word != word.toLowerCase()) {
-      getNewWord(word, partOfSpeech, dispatch);
-      return;
-    } else {
-      return;
-    }
+    getNewWord(word, partOfSpeech, dispatch);
+    return;
   }
 };
 

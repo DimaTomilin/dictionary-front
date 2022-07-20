@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Header from '../comp/Header';
 import Footer from '../comp/Footer';
 import { Button } from 'react-bootstrap';
@@ -19,43 +19,25 @@ export default function WordPage() {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
   const params = useParams();
+
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const letterQueryParams = searchParams.get('letter');
 
-  checkRouteParamsAndGetWord(
-    words,
-    dispatch,
-    params,
-    location.pathname,
-    letterQueryParams
-  );
+  useEffect(() => {
+    checkRouteParamsAndGetWord(
+      dispatch,
+      params,
+      location.pathname,
+      letterQueryParams
+    );
+  }, [location.pathname]);
 
   const clickHandle = () => {
     navigate('/');
   };
-
-  if (params.word) {
-    if (words.length === 0 || words[0].Word != params.word.toLowerCase()) {
-      return (
-        <div className={`App ${darkMode ? 'darkmode' : 'lightmode'}`}>
-          <Header />
-          <hr />
-          <div className="word-page">
-            <h2></h2>
-            <Button variant="info" className="form-btn" onClick={clickHandle}>
-              To main page
-            </Button>
-          </div>
-          <hr />
-          <Footer />
-        </div>
-      );
-    }
-  }
 
   let wordToHeader = '';
   if (words.length != 0) {

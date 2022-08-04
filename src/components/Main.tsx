@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import WordForm from './WordForm';
 import RandomWordForm from './RandomWordForm';
 
-export default function Main() {
+const Main: FC = () => {
   return (
-    <div className="main">
+    <div className='main'>
       <WordForm />
       <RandomWordForm />
     </div>
   );
-}
+};
+
+export default Main;

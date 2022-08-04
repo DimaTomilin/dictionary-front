@@ -1,7 +1,7 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 
-export default function AlertMessage() {
+const AlertMessage: FC = () => {
   const [isOpen, setIsOpen] = useState(true);
   const style = { display: 'block' };
   const closeWarning = () => {
@@ -9,8 +9,8 @@ export default function AlertMessage() {
   };
   if (isOpen) {
     return (
-      <div id="alert1" className="alert warning">
-        <span className="closebtn" onClick={closeWarning}>
+      <div id='alert1' className='alert warning'>
+        <span className='closebtn' onClick={closeWarning}>
           &times;
         </span>
         <div>
@@ -22,4 +22,6 @@ export default function AlertMessage() {
   } else {
     return null;
   }
-}
+};
+
+export default AlertMessage;

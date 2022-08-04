@@ -1,6 +1,6 @@
 //Function that taking word that I clicked on it.
-const takeWord = () => {
-  const s = window.getSelection();
+export const takeWord = (): string => {
+  const s = window.getSelection() as any;
   const range = s.getRangeAt(0);
   const node = s.anchorNode;
 
@@ -36,4 +36,3 @@ const takeWord = () => {
     .replace(/[^a-zA-Z0-9]/g, '')
     .trim();
 };
-module.exports = { takeWord };

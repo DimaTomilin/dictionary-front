@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import { wordReducer } from './wordReducer';
 
-export default combineReducers({
+export const rootReducer = combineReducers({
   words: wordReducer,
 });
+
+export type rootType = ReturnType<typeof rootReducer>;

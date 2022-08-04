@@ -8,6 +8,7 @@ const Footer: FC = () => {
   const theme = useContext(ThemeContext);
   return (
     <div className={`footer-basic ${theme?.darkMode ? 'darkmode' : 'lightmode'}`}>
+      <hr />
       <footer>
         <div className='social'>
           <a href='https://www.instagram.com/tomilin.dimon/' target='blank'>

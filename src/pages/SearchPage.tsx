@@ -13,7 +13,6 @@ const TodoList: React.FC = () => {
       <hr />
       <AlertMessage />
       <Main />
-      <hr />
       <Footer />
     </div>
   );

@@ -25,7 +25,6 @@ const WordPage: React.FC = () => {
       <Header />
       <hr />
       <ListOfWords />
-      <hr />
       <Footer />
     </div>
   );

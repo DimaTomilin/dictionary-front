@@ -11,7 +11,7 @@ const WordForm: React.FC = () => {
     if (WordEle.current === null || PartSpeechEle.current === null) {
       return;
     }
-    let url = `/dictionary/${WordEle.current.value}/`;
+    let url = `/${WordEle.current.value}/`;
     if (PartSpeechEle.current.value !== '0') {
       url += PartSpeechEle.current.value.toLowerCase();
     }

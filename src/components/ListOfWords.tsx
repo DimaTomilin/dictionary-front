@@ -18,7 +18,7 @@ const ListOfWords: React.FC = () => {
   const findWord = async (e) => {
     if (e.ctrlKey === true) {
       const word = takeWord();
-      navigate(`/dictionary/${word}`);
+      navigate(`/${word}`);
     }
   };
 
@@ -32,7 +32,7 @@ const ListOfWords: React.FC = () => {
 
   return (
     <div className='word-page'>
-      {firstLetterUpperCase(words[0].Word) ? <h2>{firstLetterUpperCase(words[0].Word)}</h2> : <h2></h2>}
+      {firstLetterUpperCase(words[0]) ? <h2>{firstLetterUpperCase(words[0])}</h2> : <h2></h2>}
       {words.map((word, index) => {
         return (
           <div key={index}>

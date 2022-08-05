@@ -1,4 +1,5 @@
 import { fetchWordsTypes, wordAction, WordState } from '../../types/word';
+import { updateLocalStorage } from 'helpers/localStorageFunctions';
 
 const defaultState: WordState = {
   words: [],
@@ -11,6 +12,7 @@ export const wordReducer = (state = defaultState, action: wordAction): WordState
     case fetchWordsTypes.FETCH_WORDS:
       return { ...state, loading: true, error: null };
     case fetchWordsTypes.FETCH_WORDS_SUCCESS:
+      updateLocalStorage(action.payload[0].Word);
       return { ...state, loading: false, words: action.payload };
     case fetchWordsTypes.FETCH_WORDS_ERROR:
       return { ...state, loading: false, error: action.payload };

@@ -1,9 +1,7 @@
-import { Word } from 'types/word';
-
-export const firstLetterUpperCase = (word: Word): string | undefined => {
+export const firstLetterUpperCase = (word: string): string | undefined => {
   let wordToHeader = '';
   if (word) {
-    wordToHeader = word.Word.charAt(0).toUpperCase() + word.Word.slice(1);
+    wordToHeader = word.charAt(0).toUpperCase() + word.slice(1);
   }
   return wordToHeader;
 };

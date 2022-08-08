@@ -22,7 +22,7 @@ export const updateLocalStorage = (word: string) => {
     word: firstLetterUpperCase(word),
     date: getCurrentDateAndTimeString(),
   });
-  if (newStorageLength > 10) {
+  if (newStorageLength > 20) {
     wordsHistory.pop();
   }
   localStorage.setItem('words', JSON.stringify(wordsHistory));

@@ -17,9 +17,13 @@ const RandomWordForm: React.FC = () => {
     } else if (LetterEle.current.value.trim().length > 1) {
       alert('Sorry but you can choose only first letter!');
     } else if (LetterEle.current.value.trim().length === 1) {
-      navigate(`/part-of-speech/${PartSpeechEle.current.value}?letter=${LetterEle.current.value.trim().toLowerCase()}`);
+      navigate(
+        `/dictionary/part-of-speech/${PartSpeechEle.current.value}?letter=${LetterEle.current.value
+          .trim()
+          .toLowerCase()}`,
+      );
     } else {
-      navigate(`/part-of-speech/${PartSpeechEle.current.value}`);
+      navigate(`/dictionary/part-of-speech/${PartSpeechEle.current.value}`);
     }
   };
 

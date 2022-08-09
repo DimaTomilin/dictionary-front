@@ -30,6 +30,11 @@ const ListOfWords: React.FC = () => {
     alert(error);
   }
 
+  if (words.length === 0) {
+    navigate('/');
+    return <></>;
+  }
+
   return (
     <div className='word-page'>
       {firstLetterUpperCase(words[0].Word) ? <h2>{firstLetterUpperCase(words[0].Word)}</h2> : <h2></h2>}

@@ -11,8 +11,9 @@ const HistoryPage: React.FC = () => {
   const navigate = useNavigate();
 
   let words: any[] = [];
-  if (localStorage.getItem('words') !== null) {
-    words = JSON.parse(localStorage.getItem('words') as string);
+  if (window.localStorage.getItem('words') !== null) {
+    console.log(window.localStorage.getItem('words'));
+    words = JSON.parse(window.localStorage.getItem('words') as string);
   }
 
   const clickHandle = () => {
@@ -24,9 +25,13 @@ const HistoryPage: React.FC = () => {
       <Header />
       <hr />
       <div className='history-page'>
-        {words.map((word, index) => {
-          return <HistoryElement word={word.word} date={word.date} key={index} />;
-        })}
+        {words.length > 0 ? (
+          words.map((word, index) => {
+            return <HistoryElement word={word.word} date={word.date} key={index} />;
+          })
+        ) : (
+          <p>No history of search</p>
+        )}
         <Button variant='info' className='form-btn' onClick={clickHandle}>
           To main page
         </Button>

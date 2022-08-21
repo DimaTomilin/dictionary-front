@@ -13,7 +13,7 @@ const SideNavbar: React.FC = () => {
 
   return (
     <div>
-      <Button className='sidebar' variant='warning' onClick={handleShow}>
+      <Button className='sidebar' variant='warning' onClick={handleShow} role='side-bar-button'>
         <AiOutlineMenu />
       </Button>
 

@@ -1,8 +1,10 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { AiOutlineMenu } from 'react-icons/ai';
+import './headerNavbar.scss';
 
 const SideNavbar: React.FC = () => {
   const [show, setShow] = useState(false);

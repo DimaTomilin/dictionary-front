@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from '../../context/ThemeContext';
-import '../../styles/darkMode.scss';
+import { ThemeContext } from '../../../context/ThemeContext';
+import './darkModeButton.scss';
 
 export default function DarkMode() {
   const theme = useContext(ThemeContext);

@@ -1,6 +1,7 @@
 import React from 'react';
-import DarkMode from './ui/DarkMode';
-import SideNavbar from './ui/HeaderNavbar';
+import DarkMode from '../DarkModeButton/DarkModeButton';
+import SideNavbar from '../HeaderNavbar/HeaderNavbar';
+import './header.scss';
 
 const Header: React.FC = () => {
   return (

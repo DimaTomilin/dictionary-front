@@ -1,11 +1,12 @@
-import React, { FC, useContext } from 'react';
-import '../styles/footer.scss';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../../context/ThemeContext';
 import { BsTwitter, BsGithub, BsFacebook, BsInstagram } from 'react-icons/bs';
-import { ThemeContext } from '../context/ThemeContext';
+import './footer.scss';
 
-const Footer: FC = () => {
-  const marginBottom = { marginBottom: '10px' };
+const Footer: React.FC = () => {
   const theme = useContext(ThemeContext);
+  const marginBottom = { marginBottom: '10px' };
+
   return (
     <div className={`footer-basic ${theme?.darkMode ? 'darkmode' : 'lightmode'}`}>
       <hr />

@@ -67,8 +67,8 @@
 ## About The Project
 
 <div>
-    <img src="./src/images/screenshot1.jpeg" alt="drawing" width="300"/>
-    <img src="./src/images/screenshot2.jpeg" alt="drawing" width="300"/>
+    <img src="./assets/screenshot1.jpeg" alt="drawing" width="300"/>
+    <img src="./assets/screenshot2.jpeg" alt="drawing" width="300"/>
 </div  >
 
 I decided to create dictionary, that will help to me and other people that want to learn English. So I made comfort aplication to search words and learning them meanings, also it is functionality to search random word by part of speech so you can learn every day random word.
@@ -79,8 +79,11 @@ My Database have 70.000 words and i will improve it. All words have definition a
 ### Built With
 
 - [React.js](https://reactjs.org/)
-- [Bootstrap](https://getbootstrap.com)
+- [Typescript](https://www.typescriptlang.org/)
 - [Redux](https://redux.js.org/)
+- [Bootstrap](https://getbootstrap.com)
+- [Jest](https://jestjs.io/)
+- [Cypress](https://www.cypress.io/)
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
@@ -116,12 +119,12 @@ This is an example of how to list things you need to use the software and how to
 
 ## Usage
 
-<img src="./src/images/Screenshot3.png" alt="drawing" width="600"/>
+<img src="./assets/Screenshot3.png" alt="drawing" width="600"/>
 <br/>
 It is example of WordPage that have some definitions because searched word we can use like noun,adjective and verb.
 <br/>
 <br/>
-<img src="./src/images/Screenshot4.png" alt="drawing" width="600"/>
+<img src="./assets/Screenshot4.png" alt="drawing" width="600"/>
 <br/>
 In this image we can see that if i try to find word that don`t exist at the moment in my Database or i will try to make something wrong i will Have informative window that will explain what go bad.
 
@@ -131,11 +134,18 @@ In this image we can see that if i try to find word that don`t exist at the mome
 
 ## Roadmap
 
-- Creating webpage with functionality of seacrching by words, also make possible to search definition of this word only to one part of speech
-- Add functionality of searching random words by part of speech or spesific letter
+- Creating webpage with functionality of seacrching by words, also make possible to search definition of this word only to one part of speech.
+- Add functionality of searching random words by part of speech or spesific letter.
 - Add functinality to PC users to search next word by Ctrl+Click on the word. You also have notification in the application.
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+
+### New version 2.0
+
+- Fixed bugs of searching word by Ctrl+Click. Now you will search word without symbols and it will work correct.
+- Refactoring of application. Added Typescript and Testing. Also refactoring of folders and code structure.
+- Added functionality of loading spinner and more efficient error messages.
+- Added history of search.
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
@@ -175,5 +185,5 @@ Also you have all my contacts in my application wegpage <a href="http://dima-app
 [stars-url]: https://github.com/DimaTomilin/dictionary-front/stargazers
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-LinkedIn-blue.svg?style=flat&logo=linkedin
 [linkedin-url]: https://www.linkedin.com/in/dima-tomilin/
-[product-screenshot]: src/images/screenshot1.jpeg
-[product-screenshot2]: src/images/screenshot1.jpeg
+[product-screenshot]: /assets/screenshot1.jpeg
+[product-screenshot2]: /assets/screenshot2.jpeg

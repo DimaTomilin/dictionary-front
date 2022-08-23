@@ -9,6 +9,7 @@
     "@types/redux-logger": "^3.0.9",
     "@types/ua-parser-js": "^0.7.36",
     "axios": "^0.25.0",
+    "node-sass": "^7.0.1",
     "prettier": "^2.5.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.1.1",

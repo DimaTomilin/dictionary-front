@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { expect } from '@jest/globals';
 import HistoryPage from './HistoryPage';
 
 window.matchMedia =

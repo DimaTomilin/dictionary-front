@@ -1,12 +1,13 @@
 /* eslint-disable */
 import React, { useContext } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { useParams, useLocation, useSearchParams } from 'react-router-dom';
-import { ThemeContext } from '../context/ThemeContext';
-import { createFetchURL } from '../helpers/createFetchURL';
+import Header from '../../components/ui/Header/Header';
+import Footer from '../../components/ui/Footer/Footer';
+import ListOfWords from '../../components/ListOfWords';
+import { ThemeContext } from '../../context/ThemeContext';
+import { createFetchURL } from '../../helpers/createFetchURL';
 import { useAction } from 'hooks/useAction';
-import ListOfWords from 'components/ListOfWords';
+import './wordPage.scss';
 
 const WordPage: React.FC = () => {
   const { fetchWords } = useAction();

@@ -1,10 +1,11 @@
-import Footer from 'components/Footer';
-import Header from 'components/Header';
-import HistoryElement from 'components/HistoryELement';
-import { ThemeContext } from 'context/ThemeContext';
 import React, { useContext } from 'react';
-import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../components/ui/Footer/Footer';
+import Header from '../../components/ui/Header/Header';
+import HistoryElement from '../../components/HistoryElement/HistoryElement';
+import { ThemeContext } from '../../context/ThemeContext';
+import { Button } from 'react-bootstrap';
+import './historyPage.scss';
 
 const HistoryPage: React.FC = () => {
   const theme = useContext(ThemeContext);

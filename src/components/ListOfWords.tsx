@@ -1,11 +1,12 @@
+/* eslint-disable */
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import LoadingSpinner from './ui/LoadingSpinner/LoadingSpinner';
 import { firstLetterUpperCase } from '../helpers/firstLetterUpperCase';
 import { takeWord } from '../helpers/wordTaken';
-import { useTypedSelector } from '../hooks/useTypedSelector';
-import * as React from 'react';
-import { Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import { alert } from '../helpers/alerts';
-import LoadingSpinner from './ui/LoadingSpinner';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import { Button } from 'react-bootstrap';
 
 const ListOfWords: React.FC = () => {
   const { loading, words, error } = useTypedSelector((state) => state.words);

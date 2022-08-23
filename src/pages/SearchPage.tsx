@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import Header from '../components/Header';
+import Header from '../components/ui/Header/Header';
 import Main from '../components/Main';
-import Footer from '../components/Footer';
-import AlertMessage from '../components/ui/AlertMessage';
+import Footer from '../components/ui/Footer/Footer';
+import AlertMessage from '../components/ui/AlertMessage/AlertMessage';
 import { ThemeContext } from '../context/ThemeContext';
 import { UAParser } from 'ua-parser-js';
 

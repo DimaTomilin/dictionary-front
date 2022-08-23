@@ -1,12 +1,14 @@
 /* eslint-disable */
 import React, { useState, FC } from 'react';
+import './alertMessage.scss';
 
 const AlertMessage: FC = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const style = { display: 'block' };
+
   const closeWarning = () => {
     setIsOpen(false);
   };
+
   if (isOpen) {
     return (
       <div id='alert1' className='alert warning'>

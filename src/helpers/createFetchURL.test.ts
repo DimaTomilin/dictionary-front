@@ -1,3 +1,4 @@
+import { expect } from '@jest/globals';
 import { createFetchURL } from './createFetchURL';
 
 describe('testing createUrl function', () => {

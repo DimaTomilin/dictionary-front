@@ -1,4 +1,9 @@
-//Function that taking word that I clicked on it.
+/**
+ * takeWord
+ *
+ * Function that get word that I clicked with using of window.getSelection. And update start and end point.
+ * @returns Word that I clicked without symbols.
+ */
 export const takeWord = (): string => {
   const s = window.getSelection() as any;
   const range = s.getRangeAt(0);

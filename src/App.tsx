@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchPage from './pages/SearchPage';
-import WordPage from './pages/WordPage';
+import WordPage from './pages/WordPage/WordPage';
+import HistoryPage from './pages/HistoryPage/HistoryPage';
 import { ThemeContextProvider } from './context/ThemeContext';
-import HistoryPage from 'pages/HistoryPage';
 
 export default function App() {
   return (

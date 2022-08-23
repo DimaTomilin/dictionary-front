@@ -1,0 +1,26 @@
+.alert {
+  width: 60%;
+  padding: 5px;
+  color: var(--background-color);
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin: 0px auto 10px;
+  line-height: 1.1;
+  font-size: 10px;
+}
+.alert.warning {
+  background-color: var(--button-color);
+}
+.closebtn {
+  margin-left: 15px;
+  color: var(--background-color);
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    color: var(--font-color);
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { expect } from '@jest/globals';
 import HeaderNavbar from './HeaderNavbar';
 
 const mockedUsedNavigate = jest.fn();

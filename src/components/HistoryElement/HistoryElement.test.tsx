@@ -1,6 +1,8 @@
+/* eslint-disable */
 import React from 'react';
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import HistoryElement from './HistoryElement';
+import { expect } from '@jest/globals';
 
 const mockedUsedNavigate = jest.fn();
 

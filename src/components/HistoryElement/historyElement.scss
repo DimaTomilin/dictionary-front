@@ -1,0 +1,19 @@
+.history-element {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 15px;
+  border: #000000 1px solid;
+  border-radius: 10px;
+  p {
+    color: gray;
+    font-size: small;
+    margin-bottom: 0px;
+  }
+  h5 {
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+}

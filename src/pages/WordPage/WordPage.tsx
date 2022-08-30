@@ -6,7 +6,7 @@ import Footer from '../../components/ui/Footer/Footer';
 import ListOfWords from '../../components/ListOfWords';
 import { ThemeContext } from '../../context/ThemeContext';
 import { createFetchURL } from '../../helpers/createFetchURL';
-import { useAction } from 'hooks/useAction';
+import { useAction } from '../../hooks/useAction';
 import './wordPage.scss';
 
 const WordPage: React.FC = () => {

@@ -11,9 +11,9 @@ export const takeWord = (): string => {
 
   // Find starting point
   while (
-    range.toString().indexOf(' ') != 0 &&
-    range.toString().indexOf(',') != 0 &&
-    range.toString().indexOf('.') != 0
+    range.toString().indexOf(' ') !== 0 &&
+    range.toString().indexOf(',') !== 0 &&
+    range.toString().indexOf('.') !== 0
   ) {
     range.setStart(node, range.startOffset - 1);
     if (node.data.indexOf(range.toString()[0]) === 0) {
@@ -30,10 +30,10 @@ export const takeWord = (): string => {
   do {
     range.setEnd(node, range.endOffset + 1);
   } while (
-    range.toString().indexOf(' ') == -1 &&
-    range.toString().indexOf(',') == -1 &&
-    range.toString().indexOf('.') == -1 &&
-    range.toString().trim() != ''
+    range.toString().indexOf(' ') === -1 &&
+    range.toString().indexOf(',') === -1 &&
+    range.toString().indexOf('.') === -1 &&
+    range.toString().trim() !== ''
   );
 
   return range

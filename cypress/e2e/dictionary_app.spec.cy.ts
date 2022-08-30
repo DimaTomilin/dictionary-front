@@ -1,6 +1,6 @@
 describe('Frontend ui testing', function () {
   this.beforeAll(() => {
-    cy.visit('http://localhost:3001');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com');
   });
 
   it('Front page can be opened', function () {
@@ -33,7 +33,7 @@ describe('Frontend ui testing', function () {
 
 describe('Check simplest usage of application', function () {
   this.beforeAll(() => {
-    cy.visit('http://localhost:3001');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com');
   });
 
   it('Search word and render of word page', function () {
@@ -83,42 +83,42 @@ describe('Check simplest usage of application', function () {
 
 describe('Advanced usage of the app + features', function () {
   this.beforeAll(() => {
-    cy.visit('http://localhost:3001');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com');
   });
 
   it('Insert url and check if i will get word', function () {
-    cy.visit('http://localhost:3001/dictionary/mother');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com/dictionary/mother');
     cy.contains('Mother');
     cy.get('.part-of-speech').should('have.length', 3);
   });
 
   it('Insert url and check if i will get word with part of speech', function () {
-    cy.visit('http://localhost:3001/dictionary/mother/verb');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com/dictionary/mother/verb');
     cy.contains('Mother');
     cy.get('.part-of-speech').should('have.length', 1).should('have.text', 'Verb');
   });
 
   it('Check if i can find randow word by inserting url', function () {
-    cy.visit('http://localhost:3001/dictionary/part-of-speech/verb');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com/dictionary/part-of-speech/verb');
     cy.wait(4000);
     cy.get('.part-of-speech').should('have.text', 'Verb');
-    cy.visit('http://localhost:3001/dictionary/part-of-speech/verb?letter=d');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com/dictionary/part-of-speech/verb?letter=d');
     cy.wait(4000);
     cy.get('.part-of-speech').should('have.text', 'Verb');
     cy.get('h2').contains(/^D/);
-    cy.visit('http://localhost:3001/history');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com/history');
   });
 
   it('Check working history', function () {
-    cy.visit('http://localhost:3001/dictionary/mother');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com/dictionary/mother');
     cy.contains('To main page').click({ force: true });
-    cy.visit('http://localhost:3001/dictionary/cat');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com/dictionary/cat');
     cy.contains('Cat');
-    cy.visit('http://localhost:3001/dictionary/dog');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com/dictionary/dog');
     cy.contains('Dog');
-    cy.visit('http://localhost:3001/dictionary/trip');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com/dictionary/trip');
     cy.contains('Trip');
-    cy.visit('http://localhost:3001/dictionary/also');
+    cy.visit('http://dima-app-dictionary.s3-website-us-east-1.amazonaws.com/dictionary/also');
     cy.contains('Also');
     cy.get('.sidebar').click({ force: true });
     cy.contains('History').click({ force: true });

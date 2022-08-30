@@ -16,7 +16,7 @@ const ListOfWords: React.FC = () => {
     navigate('/');
   };
 
-  const findWord = async (e) => {
+  const findWord = async (e: React.MouseEvent<HTMLElement>) => {
     if (e.ctrlKey === true) {
       const word = takeWord();
       navigate(`/dictionary/${word}`);
@@ -38,13 +38,13 @@ const ListOfWords: React.FC = () => {
 
   return (
     <div className='word-page'>
-      {firstLetterUpperCase(words[0].Word) ? <h2>{firstLetterUpperCase(words[0].Word)}</h2> : <h2></h2>}
-      {words.map((word, index) => {
+      {firstLetterUpperCase(words[0].word) ? <h2>{firstLetterUpperCase(words[0].word)}</h2> : <h2></h2>}
+      {words.map((word) => {
         return (
-          <div key={index}>
-            <p className='part-of-speech'>{word.Part_of_speech}</p>
+          <div key={word.id}>
+            <p className='part-of-speech'>{firstLetterUpperCase(word.part_of_speech)}</p>
             <p className='definition' onClick={findWord}>
-              {word.Definition}
+              {word.definitions}
             </p>
           </div>
         );

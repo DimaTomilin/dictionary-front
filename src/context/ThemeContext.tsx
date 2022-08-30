@@ -7,7 +7,7 @@ interface ThemeContextInterface {
 
 export const ThemeContext = createContext<ThemeContextInterface | null>(null);
 
-export function ThemeContextProvider({ children }) {
+export function ThemeContextProvider({ children }: { children?: React.ReactNode }) {
   const [darkMode, setDarkMode] = useState(false);
 
   const changeMode = () => {

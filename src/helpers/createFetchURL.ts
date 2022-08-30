@@ -13,8 +13,7 @@ interface UrlParams {
  * @returns Correct fetch URL string
  */
 export const createFetchURL = (params: UrlParams, path: string, queryParams: string): string => {
-  // let url = 'https://whispering-woodland-98306.herokuapp.com/';
-  let url = 'http://localhost:3000/';
+  let url = 'https://awesome-dictionary-dima.herokuapp.com/';
   if (path.includes('part-of-speech')) {
     url = url + 'part-of-speech/' + params.partOfSpeech.toLowerCase();
     if (queryParams) {

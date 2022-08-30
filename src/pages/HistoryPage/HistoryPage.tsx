@@ -13,7 +13,6 @@ const HistoryPage: React.FC = () => {
 
   let words: any[] = [];
   if (window.localStorage.getItem('words') !== null) {
-    console.log(window.localStorage.getItem('words'));
     words = JSON.parse(window.localStorage.getItem('words') as string);
   }
 
@@ -31,7 +30,7 @@ const HistoryPage: React.FC = () => {
             return <HistoryElement word={word.word} date={word.date} key={index} />;
           })
         ) : (
-          <p>No history of search</p>
+          <p className='history-message'>No history of search</p>
         )}
         <Button variant='info' className='form-btn' onClick={clickHandle}>
           To main page

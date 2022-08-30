@@ -1,7 +1,8 @@
 export interface Word {
-  Word: string;
-  Definition: string[];
-  Part_of_speech: string;
+  id: number;
+  word: string;
+  definitions: string;
+  part_of_speech: string;
 }
 
 export interface WordState {
